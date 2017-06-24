@@ -18,14 +18,14 @@ def videoDurationCheck(start, end):
     else:
         return False
 
-def process(filename, start, duration):
+def process(filename, start, end):
     if search("^[][!\"#$%&\'()*+,./:;<=>?@\\^_`{|}~-]", filename):
         filename = filename[2:]
         print filename
     name, extension = filename.split(".")
     output = name + "_" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + "." + extension
     print "Processing your video...\n"
-    system("ffmpeg.exe -ss " + start + " -i " + filename + " -to " + end + " -c copy " + output)
+    system("ffmpeg.exe -ss " + start + " -i " + filename + " -to " + end + " -c copy -copyts " + output)
 
 if __name__ == '__main__':
     if len(argv) == 4:
