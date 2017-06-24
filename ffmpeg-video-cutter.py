@@ -11,8 +11,8 @@ def help():
     print "Example: 00:10:20\n"
 
 def videoDurationCheck(start, end):
-    matchstart = search("(?:(\d{1,2}):)?(\d{1,2}):(\d{2})", argv[2])
-    matchduration = search("(?:(\d{1,2}):)?(\d{1,2}):(\d{2})", argv[3])
+    matchstart = search("(?:(\d{1,2}):)?(\d{1,2}):(\d{2})", start)
+    matchduration = search("(?:(\d{1,2}):)?(\d{1,2}):(\d{2})", end)
     if(matchstart and matchduration):
         return True
     else:
